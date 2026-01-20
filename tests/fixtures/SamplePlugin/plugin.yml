@@ -1,0 +1,16 @@
+name: SamplePlugin
+version: 1.0.0
+main: SamplePlugin\Main
+api: 5.0.0
+author: Test
+description: A sample plugin for testing Retina
+
+commands:
+  test:
+    description: A test command
+    permission: sampleplugin.test
+
+permissions:
+  sampleplugin.test:
+    default: true
+    description: Allows using the test command
