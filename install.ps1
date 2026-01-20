@@ -3,10 +3,6 @@
 # Usage: iwr -useb https://raw.githubusercontent.com/moonlightontheriver/retina/main/install.ps1 | iex
 #
 
-param(
-    [switch]$Uninstall
-)
-
 $ErrorActionPreference = "Continue"
 
 # Configuration
@@ -231,29 +227,7 @@ function Show-Usage {
     Write-Host ""
 }
 
-function Uninstall-Retina {
-    Print-Info "Uninstalling Retina..."
-    
-    # Remove installation directory
-    if (Test-Path $INSTALL_DIR) {
-        Remove-Item -Path $INSTALL_DIR -Recurse -Force
-    }
-    
-    # Remove from PATH
-    $currentPath = [Environment]::GetEnvironmentVariable("Path", "User")
-    $newPath = ($currentPath -split ';' | Where-Object { $_ -notlike "*retina*" }) -join ';'
-    [Environment]::SetEnvironmentVariable("Path", $newPath, "User")
-    
-    Print-Success "Retina has been uninstalled"
-    exit 0
-}
-
 function Main {
-    # Check for uninstall flag
-    if ($Uninstall) {
-        Uninstall-Retina
-    }
-    
     Print-Header
     Check-Requirements
     Install-Retina

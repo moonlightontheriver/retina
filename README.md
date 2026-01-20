@@ -16,9 +16,21 @@ curl -sSL https://raw.githubusercontent.com/moonlightontheriver/retina/main/inst
 iwr -useb https://raw.githubusercontent.com/moonlightontheriver/retina/main/install.ps1 | iex
 ```
 
+Or download and run locally:
+
+```powershell
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/moonlightontheriver/retina/main/install.ps1 -OutFile install.ps1
+.\install.ps1
+```
+
 ### Windows (CMD)
 
-Download and run `install.bat` from the releases page.
+Download `install.bat` and run it:
+
+```cmd
+curl -o install.bat https://raw.githubusercontent.com/moonlightontheriver/retina/main/install.bat
+install.bat
+```
 
 ### Requirements
 
